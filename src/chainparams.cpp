@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The LasVegasCoin developers
+// Copyright (c) 2015-2017 The StorOfWealth developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -192,8 +192,8 @@ public:
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
         nDefaultPort = 51474;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // LasVegasCoin: 1 day
-        nTargetSpacing = 1 * 60;  // LasVegasCoin: 1 minute
+        nTargetTimespan = 1 * 60; // StorOfWealth: 1 day
+        nTargetSpacing = 1 * 60;  // StorOfWealth: 1 minute
         nMaturity = 15;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
 
@@ -260,8 +260,8 @@ public:
         pchMessageStart[3] = 0xac;
         nSubsidyHalvingInterval = 150;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // LasVegasCoin: 1 day
-        nTargetSpacing = 1 * 60;        // LasVegasCoin: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // StorOfWealth: 1 day
+        nTargetSpacing = 1 * 60;        // StorOfWealth: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1454124731;
         genesis.nBits = 0x207fffff;

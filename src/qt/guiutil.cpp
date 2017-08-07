@@ -581,7 +581,7 @@ bool DHMSTableWidgetItem::operator<(QTableWidgetItem const& item) const
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "LasVegasCoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "StorOfWealth.lnk";
 }
 
 bool GetStartOnSystemStartup()

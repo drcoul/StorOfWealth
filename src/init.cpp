@@ -1570,9 +1570,9 @@ bool AppInit2(boost::thread_group& threadGroup)
         nObfuscationRounds = 99999;
     }
 
-    nAnonymizeLasVegasCoinAmount = GetArg("-anonymizelasvegascoinamount", 0);
-    if (nAnonymizeLasVegasCoinAmount > 999999) nAnonymizeLasVegasCoinAmount = 999999;
-    if (nAnonymizeLasVegasCoinAmount < 2) nAnonymizeLasVegasCoinAmount = 2;
+    nAnonymizeStorOfWealthAmount = GetArg("-anonymizelasvegascoinamount", 0);
+    if (nAnonymizeStorOfWealthAmount > 999999) nAnonymizeStorOfWealthAmount = 999999;
+    if (nAnonymizeStorOfWealthAmount < 2) nAnonymizeStorOfWealthAmount = 2;
 
     fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
     nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);
@@ -1587,7 +1587,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     LogPrintf("fLiteMode %d\n", fLiteMode);
     LogPrintf("nSwiftTXDepth %d\n", nSwiftTXDepth);
     LogPrintf("Obfuscation rounds %d\n", nObfuscationRounds);
-    LogPrintf("Anonymize Store of Wealth Coin Amount %d\n", nAnonymizeLasVegasCoinAmount);
+    LogPrintf("Anonymize Store of Wealth Coin Amount %d\n", nAnonymizeStorOfWealthAmount);
     LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
 
     /* Denominations

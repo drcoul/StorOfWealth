@@ -75,11 +75,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizeLasVegasCoinAmount"))
-        settings.setValue("nAnonymizeLasVegasCoinAmount", 1000);
+    if (!settings.contains("nAnonymizeStorOfWealthAmount"))
+        settings.setValue("nAnonymizeStorOfWealthAmount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizeLasVegasCoinAmount = settings.value("nAnonymizeLasVegasCoinAmount").toLongLong();
+    nAnonymizeStorOfWealthAmount = settings.value("nAnonymizeStorOfWealthAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -146,8 +146,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeLasVegasCoinAmount"))
-        SoftSetArg("-anonymizelasvegascoinamount", settings.value("nAnonymizeLasVegasCoinAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeStorOfWealthAmount"))
+        SoftSetArg("-anonymizelasvegascoinamount", settings.value("nAnonymizeStorOfWealthAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -227,8 +227,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizeLasVegasCoinAmount:
-            return QVariant(nAnonymizeLasVegasCoinAmount);
+        case AnonymizeStorOfWealthAmount:
+            return QVariant(nAnonymizeStorOfWealthAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -337,10 +337,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizeLasVegasCoinAmount:
-            nAnonymizeLasVegasCoinAmount = value.toInt();
-            settings.setValue("nAnonymizeLasVegasCoinAmount", nAnonymizeLasVegasCoinAmount);
-            emit anonymizeLasVegasCoinAmountChanged(nAnonymizeLasVegasCoinAmount);
+        case AnonymizeStorOfWealthAmount:
+            nAnonymizeStorOfWealthAmount = value.toInt();
+            settings.setValue("nAnonymizeStorOfWealthAmount", nAnonymizeStorOfWealthAmount);
+            emit anonymizeStorOfWealthAmountChanged(nAnonymizeStorOfWealthAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

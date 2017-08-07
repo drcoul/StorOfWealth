@@ -1,7 +1,7 @@
 Masternode Budget API
 =======================
 
-LasVegasCoin now supports full decentralized budgets that are paid directly from the blockchain via superblocks once per month.
+StorOfWealth now supports full decentralized budgets that are paid directly from the blockchain via superblocks once per month.
 
 Budgets go through a series of stages before being paid:
 * prepare - create a special transaction that destroys coins in order to make a proposal
@@ -25,7 +25,7 @@ mnbudget prepare cool-project http://www.cool-project/one.json 12 100000 y6R9oN1
 
 Output: `464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0` - This is the collateral hash, copy this output for the next step
 
-In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ LasVegasCoin, _12_ times over the course of a year totaling _24000_ LasVegasCoin.
+In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ StorOfWealth, _12_ times over the course of a year totaling _24000_ StorOfWealth.
 
 **Warning -- if you change any fields within this command, the collateral transaction will become invalid.**
 
@@ -148,9 +148,9 @@ The following new RPC commands are supported:
 - mnbudget "command"... ( "passphrase" )
  * prepare            - Prepare proposal for network by signing and creating tx
  * submit             - Submit proposal for network
- * vote-many          - Vote on a LasVegasCoin initiative
- * vote-alias         - Vote on a LasVegasCoin initiative
- * vote               - Vote on a LasVegasCoin initiative/budget
+ * vote-many          - Vote on a StorOfWealth initiative
+ * vote-alias         - Vote on a StorOfWealth initiative
+ * vote               - Vote on a StorOfWealth initiative/budget
  * getvotes           - Show current masternode budgets
  * getinfo            - Show current masternode budgets
  * show               - Show all budgets

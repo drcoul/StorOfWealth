@@ -309,15 +309,15 @@ void OverviewPage::updateObfuscationProgress()
     if (!pwalletMain) return;
 
     QString strAmountAndRounds;
-    QString strAnonymizeLasVegasCoinAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeLasVegasCoinAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strAnonymizeStorOfWealthAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeStorOfWealthAmount * COIN, false, BitcoinUnits::separatorAlways);
 
     if (currentBalance == 0) {
         ui->obfuscationProgress->setValue(0);
         ui->obfuscationProgress->setToolTip(tr("No inputs detected"));
 
         // when balance is zero just show info from settings
-        strAnonymizeLasVegasCoinAmount = strAnonymizeLasVegasCoinAmount.remove(strAnonymizeLasVegasCoinAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeLasVegasCoinAmount + " / " + tr("%n Rounds", "", nObfuscationRounds);
+        strAnonymizeStorOfWealthAmount = strAnonymizeStorOfWealthAmount.remove(strAnonymizeStorOfWealthAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeStorOfWealthAmount + " / " + tr("%n Rounds", "", nObfuscationRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -344,20 +344,20 @@ void OverviewPage::updateObfuscationProgress()
     CAmount nMaxToAnonymize = nAnonymizableBalance + currentAnonymizedBalance + nDenominatedUnconfirmedBalance;
 
     // If it's more than the anon threshold, limit to that.
-    if (nMaxToAnonymize > nAnonymizeLasVegasCoinAmount * COIN) nMaxToAnonymize = nAnonymizeLasVegasCoinAmount * COIN;
+    if (nMaxToAnonymize > nAnonymizeStorOfWealthAmount * COIN) nMaxToAnonymize = nAnonymizeStorOfWealthAmount * COIN;
 
     if (nMaxToAnonymize == 0) return;
 
-    if (nMaxToAnonymize >= nAnonymizeLasVegasCoinAmount * COIN) {
+    if (nMaxToAnonymize >= nAnonymizeStorOfWealthAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to anonymize %1")
-                                              .arg(strAnonymizeLasVegasCoinAmount));
-        strAnonymizeLasVegasCoinAmount = strAnonymizeLasVegasCoinAmount.remove(strAnonymizeLasVegasCoinAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeLasVegasCoinAmount + " / " + tr("%n Rounds", "", nObfuscationRounds);
+                                              .arg(strAnonymizeStorOfWealthAmount));
+        strAnonymizeStorOfWealthAmount = strAnonymizeStorOfWealthAmount.remove(strAnonymizeStorOfWealthAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeStorOfWealthAmount + " / " + tr("%n Rounds", "", nObfuscationRounds);
     } else {
         QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to anonymize <span style='color:red;'>%1</span>,<br>"
                                              "will anonymize <span style='color:red;'>%2</span> instead")
-                                              .arg(strAnonymizeLasVegasCoinAmount)
+                                              .arg(strAnonymizeStorOfWealthAmount)
                                               .arg(strMaxToAnonymize));
         strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='color:red;'>" +
@@ -528,7 +528,7 @@ void OverviewPage::toggleObfuscation()
 
         /* show obfuscation configuration if client has defaults set */
 
-        if (nAnonymizeLasVegasCoinAmount == 0) {
+        if (nAnonymizeStorOfWealthAmount == 0) {
             ObfuscationConfig dlg(this);
             dlg.setModel(walletModel);
             dlg.exec();

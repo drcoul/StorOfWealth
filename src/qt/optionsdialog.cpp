@@ -213,7 +213,7 @@ void OptionsDialog::setMapper()
 
     /* Obfuscation Rounds */
     mapper->addMapping(ui->obfuscationRounds, OptionsModel::ObfuscationRounds);
-    mapper->addMapping(ui->anonymizeLasVegasCoin, OptionsModel::AnonymizeLasVegasCoinAmount);
+    mapper->addMapping(ui->anonymizeStorOfWealth, OptionsModel::AnonymizeStorOfWealthAmount);
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
 }
 

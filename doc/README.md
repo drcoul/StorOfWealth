@@ -22,7 +22,7 @@ Unpack the files into a directory, and then run lasvegascoin-qt.exe.
 
 ### OSX
 
-Drag LasVegasCoin-Qt to your applications folder, and then run LasVegasCoin-Qt.
+Drag StorOfWealth-Qt to your applications folder, and then run StorOfWealth-Qt.
 
 ### Need Help?
 
@@ -41,7 +41,7 @@ The following are developer notes on how to build Store of Wealth Coin on your n
 
 Development
 ---------------------
-The LasVegasCoin repo's [root README](https://github.com/LasVegasCoin-Project/LasVegasCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The StorOfWealth repo's [root README](https://github.com/StorOfWealth-Project/StorOfWealth/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

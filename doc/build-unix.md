@@ -83,7 +83,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build LasVegasCoin-Qt, make sure that the required packages for Qt development
+If you want to build StorOfWealth-Qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 To build without GUI pass `--without-gui`.
@@ -130,10 +130,10 @@ Berkeley DB
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
 ```bash
-LasVegasCoin_ROOT=$(pwd)
+StorOfWealth_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the lasvegascoin directory
-BDB_PREFIX="${LasVegasCoin_ROOT}/db4"
+BDB_PREFIX="${StorOfWealth_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -149,7 +149,7 @@ cd db-4.8.30.NC/build_unix/
 make install
 
 # Configure Store of Wealth Coin Core to use our own-built instance of BDB
-cd $LasVegasCoin_ROOT
+cd $StorOfWealth_ROOT
 ./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 

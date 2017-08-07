@@ -113,7 +113,7 @@ bool fLiteMode = false;
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
 int nObfuscationRounds = 2;
-int nAnonymizeLasVegasCoinAmount = 1000;
+int nAnonymizeStorOfWealthAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -417,13 +417,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\LasVegasCoin
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\LasVegasCoin
-// Mac: ~/Library/Application Support/LasVegasCoin
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\StorOfWealth
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\StorOfWealth
+// Mac: ~/Library/Application Support/StorOfWealth
 // Unix: ~/.lasvegascoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "LasVegasCoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "StorOfWealth";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -435,7 +435,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "LasVegasCoin";
+    return pathRet / "StorOfWealth";
 #else
     // Unix
     return pathRet / ".lasvegascoin";

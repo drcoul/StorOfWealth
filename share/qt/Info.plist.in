@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The LasVegasCoin Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The StorOfWealth Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>LasVegasCoin-Qt</string>
+  <string>StorOfWealth-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.lasvegascoin.LasVegasCoin-Qt</string>
+  <string>io.lasvegascoin.StorOfWealth-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,7 +40,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.lasvegascoin.LasVegasCoinPayment</string>
+      <string>io.lasvegascoin.StorOfWealthPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>lasvegascoin</string>
@@ -54,7 +54,7 @@
       <key>UTTypeIdentifier</key>
       <string>io.lasvegascoin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>LasVegasCoin payment request</string>
+      <string>StorOfWealth payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

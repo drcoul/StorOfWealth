@@ -34,7 +34,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse LasVegasCoin address
+    // Parse StorOfWealth address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -83,7 +83,7 @@ Value obfuscation(const Array& params, bool fHelp)
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LasVegasCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid StorOfWealth address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);

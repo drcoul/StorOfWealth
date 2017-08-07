@@ -17,7 +17,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Store of Wealth Coin"
-            VALUE "FileDescription",    "lasvegascoind (OSS daemon/client for LasVegasCoin)"
+            VALUE "FileDescription",    "lasvegascoind (OSS daemon/client for StorOfWealth)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "lasvegascoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR

@@ -299,7 +299,7 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* LasVegasCoin features */
+        /* StorOfWealth features */
         {"lasvegascoin", "masternode", &masternode, true, true, false},
         {"lasvegascoin", "masternodelist", &masternodelist, true, true, false},
         {"lasvegascoin", "mnbudget", &mnbudget, true, true, false},

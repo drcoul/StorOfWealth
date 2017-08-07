@@ -80,8 +80,8 @@ void ObfuscationConfig::configure(bool enabled, int coins, int rounds)
     QSettings settings;
 
     settings.setValue("nObfuscationRounds", rounds);
-    settings.setValue("nAnonymizeLasVegasCoinAmount", coins);
+    settings.setValue("nAnonymizeStorOfWealthAmount", coins);
 
     nObfuscationRounds = rounds;
-    nAnonymizeLasVegasCoinAmount = coins;
+    nAnonymizeStorOfWealthAmount = coins;
 }

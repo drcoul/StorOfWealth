@@ -10,7 +10,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between lasvegascoin-cli and lasvegascoind)
- * of a given instance of the LasVegasCoin system.
+ * of a given instance of the StorOfWealth system.
  */
 class CBaseChainParams
 {

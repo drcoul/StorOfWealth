@@ -35,9 +35,9 @@ def check_json_precision():
 def determine_db_dir():
     """Return the default location of the lasvegascoin data directory"""
     if platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Application Support/LasVegasCoin/")
+        return os.path.expanduser("~/Library/Application Support/StorOfWealth/")
     elif platform.system() == "Windows":
-        return os.path.join(os.environ['APPDATA'], "LasVegasCoin")
+        return os.path.join(os.environ['APPDATA'], "StorOfWealth")
     return os.path.expanduser("~/.lasvegascoin")
 
 def read_bitcoin_config(dbdir):
