@@ -46,7 +46,7 @@ related to the DNS seed operation.
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active Store of Wealth Coin
 Core development team as well as posting on the
-[Store of Wealth Coin Forum](https://forum.lasvegascoin.org).
+[Store of Wealth Coin Forum](https://forum.storofwealth.org).
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.

@@ -444,7 +444,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
     LogPrintf("Store of Wealth CoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("lasvegascoin-miner");
+    RenameThread("storofwealth-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);

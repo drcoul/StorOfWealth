@@ -1,25 +1,25 @@
-# /etc/conf.d/lasvegascoind: config file for /etc/init.d/lasvegascoind
+# /etc/conf.d/storofwealthd: config file for /etc/init.d/storofwealthd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/lasvegascoin/lasvegascoin.conf"
+#BITCOIND_CONFIGFILE="/etc/storofwealth/storofwealth.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/lasvegascoind"
+#BITCOIND_PIDDIR="/var/run/storofwealthd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/lasvegascoind.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/storofwealthd.pid"
 
-# Where to write lasvegascoind data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/lasvegascoind"
+# Where to write storofwealthd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/storofwealthd"
 
-# User and group to own lasvegascoind process
-#BITCOIND_USER="lasvegascoin"
-#BITCOIND_GROUP="lasvegascoin"
+# User and group to own storofwealthd process
+#BITCOIND_USER="storofwealth"
+#BITCOIND_GROUP="storofwealth"
 
-# Path to lasvegascoind executable
-#BITCOIND_BIN="/usr/bin/lasvegascoind"
+# Path to storofwealthd executable
+#BITCOIND_BIN="/usr/bin/storofwealthd"
 
-# Nice value to run lasvegascoind under
+# Nice value to run storofwealthd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

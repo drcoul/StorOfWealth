@@ -19,10 +19,10 @@ BEGIN
             VALUE "CompanyName",        "StorOfWealth"
             VALUE "FileDescription",    "StorOfWealth-cli (OSS RPC client for StorOfWealth)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "lasvegascoin-cli"
+            VALUE "InternalName",       "storofwealth-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "lasvegascoin-cli.exe"
+            VALUE "OriginalFilename",   "storofwealth-cli.exe"
             VALUE "ProductName",        "StorOfWealth-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END

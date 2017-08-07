@@ -300,15 +300,15 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
         /* StorOfWealth features */
-        {"lasvegascoin", "masternode", &masternode, true, true, false},
-        {"lasvegascoin", "masternodelist", &masternodelist, true, true, false},
-        {"lasvegascoin", "mnbudget", &mnbudget, true, true, false},
-        {"lasvegascoin", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-        {"lasvegascoin", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"lasvegascoin", "mnsync", &mnsync, true, true, false},
-        {"lasvegascoin", "spork", &spork, true, true, false},
+        {"storofwealth", "masternode", &masternode, true, true, false},
+        {"storofwealth", "masternodelist", &masternodelist, true, true, false},
+        {"storofwealth", "mnbudget", &mnbudget, true, true, false},
+        {"storofwealth", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+        {"storofwealth", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"storofwealth", "mnsync", &mnsync, true, true, false},
+        {"storofwealth", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
-        {"lasvegascoin", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+        {"storofwealth", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -573,10 +573,10 @@ void StartRPCThreads()
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
         uiInterface.ThreadSafeMessageBox(strprintf(
-                                             _("To use lasvegascoind, or the -server option to lasvegascoin-qt, you must set an rpcpassword in the configuration file:\n"
+                                             _("To use storofwealthd, or the -server option to storofwealth-qt, you must set an rpcpassword in the configuration file:\n"
                                                "%s\n"
                                                "It is recommended you use the following random password:\n"
-                                               "rpcuser=lasvegascoinrpc\n"
+                                               "rpcuser=storofwealthrpc\n"
                                                "rpcpassword=%s\n"
                                                "(you do not need to remember this password)\n"
                                                "The username and password MUST NOT be the same.\n"
@@ -1022,7 +1022,7 @@ json_spirit::Value CRPCTable::execute(const std::string& strMethod, const json_s
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> lasvegascoin-cli " + methodname + " " + args + "\n";
+    return "> storofwealth-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

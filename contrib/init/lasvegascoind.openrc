@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/lasvegascoin/.lasvegascoin" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/lasvegascoin/.lasvegascoin"
+if [ -d "/var/lib/storofwealth/.storofwealth" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/storofwealth/.storofwealth"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/lasvegascoind"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/storofwealthd"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/lasvegascoin/lasvegascoin.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/lasvegascoind}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/lasvegascoind.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/storofwealth/storofwealth.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/storofwealthd}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/storofwealthd.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-lasvegascoin}
-BITCOIND_GROUP=${BITCOIND_GROUP:-lasvegascoin}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/lasvegascoind}
+BITCOIND_USER=${BITCOIND_USER:-storofwealth}
+BITCOIND_GROUP=${BITCOIND_GROUP:-storofwealth}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/storofwealthd}
 
 name="Store of Wealth Coin Core Daemon"
 description="Store of Wealth Coin crypto-currency p2p network daemon"
 
-command="/usr/bin/lasvegascoind"
+command="/usr/bin/storofwealthd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run lasvegascoind."
+		eerror "ERROR: You must set a secure rpcpassword to run storofwealthd."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "

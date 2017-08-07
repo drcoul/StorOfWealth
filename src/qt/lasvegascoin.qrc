@@ -37,12 +37,12 @@
         <file alias="tx_input">res/icons/tx_input.png</file>
         <file alias="tx_output">res/icons/tx_output.png</file>
         <file alias="tx_inout">res/icons/tx_inout.png</file>
-        <file alias="unit_lasvegascoin">res/icons/unit_lasvegascoin.png</file>
-        <file alias="unit_mlasvegascoin">res/icons/unit_mlasvegascoin.png</file>
-        <file alias="unit_ulasvegascoin">res/icons/unit_ulasvegascoin.png</file>
-        <file alias="unit_tlasvegascoin">res/icons/unit_tlasvegascoin.png</file>
-        <file alias="unit_tmlasvegascoin">res/icons/unit_tmlasvegascoin.png</file>
-        <file alias="unit_tulasvegascoin">res/icons/unit_tulasvegascoin.png</file>
+        <file alias="unit_storofwealth">res/icons/unit_storofwealth.png</file>
+        <file alias="unit_mstorofwealth">res/icons/unit_mstorofwealth.png</file>
+        <file alias="unit_ustorofwealth">res/icons/unit_ustorofwealth.png</file>
+        <file alias="unit_tstorofwealth">res/icons/unit_tstorofwealth.png</file>
+        <file alias="unit_tmstorofwealth">res/icons/unit_tmstorofwealth.png</file>
+        <file alias="unit_tustorofwealth">res/icons/unit_tustorofwealth.png</file>
         <file alias="lock_closed">res/icons/lock_closed.png</file>
         <file alias="lock_open">res/icons/lock_open.png</file>
         <file alias="key">res/icons/key.png</file>
@@ -58,7 +58,7 @@
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
-        <file alias="lasvegascoin_logo_horizontal">res/images/lasvegascoin_logo_horizontal.png</file>
+        <file alias="storofwealth_logo_horizontal">res/images/storofwealth_logo_horizontal.png</file>
         <file alias="downArrow">res/images/downArrow.png</file>
         <file alias="downArrow_small">res/images/downArrow_small.png</file>
         <file alias="upArrow_small">res/images/upArrow_small.png</file>

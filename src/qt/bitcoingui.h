@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lasvegascoin-config.h"
+#include "config/storofwealth-config.h"
 #endif
 
 #include "amount.h"

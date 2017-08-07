@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += lasvegascoind
+  bin_PROGRAMS += storofwealthd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += lasvegascoin-cli lasvegascoin-tx
+  bin_PROGRAMS += storofwealth-cli storofwealth-tx
 endif
 
 .PHONY: FORCE
-# lasvegascoin core #
+# storofwealth core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between lasvegascoind and lasvegascoin-qt
+# server: shared between storofwealthd and storofwealth-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between lasvegascoind and lasvegascoin-qt, but only linked
+# wallet: shared between storofwealthd and storofwealth-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between lasvegascoind, and lasvegascoin-qt and non-server tools
+# common: shared between storofwealthd, and storofwealth-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between lasvegascoin-cli and lasvegascoin-qt
+# cli: shared between storofwealth-cli and storofwealth-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-lasvegascoind_LDADD = \
+storofwealthd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ lasvegascoind_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-lasvegascoind_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+storofwealthd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-lasvegascoind_LDADD += libbitcoin_wallet.a
+storofwealthd_LDADD += libbitcoin_wallet.a
 endif
-lasvegascoind_SOURCES = lasvegascoind.cpp
+storofwealthd_SOURCES = storofwealthd.cpp
 #
 
 if TARGET_WINDOWS
-lasvegascoind_SOURCES += lasvegascoind-res.rc
+storofwealthd_SOURCES += storofwealthd-res.rc
 endif
 
-lasvegascoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-lasvegascoind_CPPFLAGS = $(BITCOIN_INCLUDES)
-lasvegascoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+storofwealthd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+storofwealthd_CPPFLAGS = $(BITCOIN_INCLUDES)
+storofwealthd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# lasvegascoin-cli binary #
-lasvegascoin_cli_LDADD = \
+# storofwealth-cli binary #
+storofwealth_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-lasvegascoin_cli_SOURCES = \
-  lasvegascoin-cli.cpp
+storofwealth_cli_SOURCES = \
+  storofwealth-cli.cpp
 
-lasvegascoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+storofwealth_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# lasvegascoin-tx binary #
-lasvegascoin_tx_LDADD = \
+# storofwealth-tx binary #
+storofwealth_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ lasvegascoin_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-lasvegascoin_tx_SOURCES = lasvegascoin-tx.cpp
-lasvegascoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+storofwealth_tx_SOURCES = storofwealth-tx.cpp
+storofwealth_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-lasvegascoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+storofwealth_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lasvegascoin_cli_SOURCES += lasvegascoin-cli-res.rc
+storofwealth_cli_SOURCES += storofwealth-cli-res.rc
 endif
-lasvegascoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+storofwealth_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

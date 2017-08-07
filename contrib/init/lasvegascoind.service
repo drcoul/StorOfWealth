@@ -3,17 +3,17 @@ Description=Store of Wealth Coin's distributed currency daemon
 After=network.target
 
 [Service]
-User=lasvegascoin
-Group=lasvegascoin
+User=storofwealth
+Group=storofwealth
 
 Type=forking
-PIDFile=/var/lib/lasvegascoind/lasvegascoind.pid
+PIDFile=/var/lib/storofwealthd/storofwealthd.pid
 
-ExecStart=/usr/bin/lasvegascoind -daemon -pid=/var/lib/lasvegascoind/lasvegascoind.pid \
-          -conf=/etc/lasvegascoin/lasvegascoin.conf -datadir=/var/lib/lasvegascoind
+ExecStart=/usr/bin/storofwealthd -daemon -pid=/var/lib/storofwealthd/storofwealthd.pid \
+          -conf=/etc/storofwealth/storofwealth.conf -datadir=/var/lib/storofwealthd
 
-ExecStop=-/usr/bin/lasvegascoin-cli -conf=/etc/lasvegascoin/lasvegascoin.conf \
-         -datadir=/var/lib/lasvegascoind stop
+ExecStop=-/usr/bin/storofwealth-cli -conf=/etc/storofwealth/storofwealth.conf \
+         -datadir=/var/lib/storofwealthd stop
 
 Restart=always
 PrivateTmp=true

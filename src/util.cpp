@@ -6,7 +6,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lasvegascoin-config.h"
+#include "config/storofwealth-config.h"
 #endif
 
 #include "util.h"
@@ -231,8 +231,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "lasvegascoin" is a composite category enabling all Store of Wealth Coin-related debug output
-            if (ptrCategory->count(string("lasvegascoin"))) {
+            // "storofwealth" is a composite category enabling all Store of Wealth Coin-related debug output
+            if (ptrCategory->count(string("storofwealth"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swifttx"));
                 ptrCategory->insert(string("masternode"));
@@ -396,7 +396,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "lasvegascoin";
+    const char* pszModule = "storofwealth";
 #endif
     if (pex)
         return strprintf(
@@ -420,7 +420,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\StorOfWealth
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\StorOfWealth
 // Mac: ~/Library/Application Support/StorOfWealth
-// Unix: ~/.lasvegascoin
+// Unix: ~/.storofwealth
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "StorOfWealth";
@@ -438,7 +438,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "StorOfWealth";
 #else
     // Unix
-    return pathRet / ".lasvegascoin";
+    return pathRet / ".storofwealth";
 #endif
 #endif
 }
@@ -485,7 +485,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "lasvegascoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "storofwealth.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -504,7 +504,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty lasvegascoin.conf if it does not exist
+        // Create empty storofwealth.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -515,7 +515,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override lasvegascoin.conf
+        // Don't overwrite existing settings so command line settings override storofwealth.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);
@@ -530,7 +530,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "lasvegascoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "storofwealthd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

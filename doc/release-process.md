@@ -24,10 +24,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/lasvegascoin-project/gitian.sigs.git
-    git clone https://github.com/lasvegascoin-project/lasvegascoin-detached-sigs.git
+    git clone https://github.com/storofwealth-project/gitian.sigs.git
+    git clone https://github.com/storofwealth-project/storofwealth-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/lasvegascoin-project/lasvegascoin.git
+    git clone https://github.com/storofwealth-project/storofwealth.git
 
 ### Store of Wealth Coin maintainers/release engineers, suggestion for writing release notes
 
@@ -50,7 +50,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./lasvegascoin
+    pushd ./storofwealth
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../lasvegascoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../storofwealth/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -92,7 +92,7 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url lasvegascoin=/path/to/lasvegascoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url storofwealth=/path/to/storofwealth,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
@@ -100,42 +100,42 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign Store of Wealth Coin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit lasvegascoin=v${VERSION} ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/lasvegascoin-*.tar.gz build/out/src/lasvegascoin-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit storofwealth=v${VERSION} ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/storofwealth-*.tar.gz build/out/src/storofwealth-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit lasvegascoin=v${VERSION} ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/lasvegascoin-*-win-unsigned.tar.gz inputs/lasvegascoin-win-unsigned.tar.gz
-    mv build/out/lasvegascoin-*.zip build/out/lasvegascoin-*.exe ../
+    ./bin/gbuild --memory 3000 --commit storofwealth=v${VERSION} ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/storofwealth-*-win-unsigned.tar.gz inputs/storofwealth-win-unsigned.tar.gz
+    mv build/out/storofwealth-*.zip build/out/storofwealth-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit lasvegascoin=v${VERSION} ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/lasvegascoin-*-osx-unsigned.tar.gz inputs/lasvegascoin-osx-unsigned.tar.gz
-    mv build/out/lasvegascoin-*.tar.gz build/out/lasvegascoin-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit storofwealth=v${VERSION} ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/storofwealth-*-osx-unsigned.tar.gz inputs/storofwealth-osx-unsigned.tar.gz
+    mv build/out/storofwealth-*.tar.gz build/out/storofwealth-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`lasvegascoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`lasvegascoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`lasvegascoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `lasvegascoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`lasvegascoin-${VERSION}-osx-unsigned.dmg`, `lasvegascoin-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`storofwealth-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`storofwealth-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`storofwealth-${VERSION}-win[32|64]-setup-unsigned.exe`, `storofwealth-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`storofwealth-${VERSION}-osx-unsigned.dmg`, `storofwealth-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import lasvegascoin/contrib/gitian-keys/*.pgp
+    gpg --import storofwealth/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -156,22 +156,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer lasvegascoin-osx-unsigned.tar.gz to osx for signing
-    tar xf lasvegascoin-osx-unsigned.tar.gz
+    transfer storofwealth-osx-unsigned.tar.gz to osx for signing
+    tar xf storofwealth-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf lasvegascoin-win-unsigned.tar.gz
+    tar xf storofwealth-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/lasvegascoin-detached-sigs
+    cd ~/storofwealth-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -184,25 +184,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [lasvegascoin-detached-sigs](https://github.com/StorOfWealth-Project/lasvegascoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [storofwealth-detached-sigs](https://github.com/StorOfWealth-Project/storofwealth-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/lasvegascoin-osx-signed.dmg ../lasvegascoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/storofwealth-osx-signed.dmg ../storofwealth-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../lasvegascoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../lasvegascoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/lasvegascoin-*win64-setup.exe ../lasvegascoin-${VERSION}-win64-setup.exe
-    mv build/out/lasvegascoin-*win32-setup.exe ../lasvegascoin-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../storofwealth/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../storofwealth/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/storofwealth-*win64-setup.exe ../storofwealth-${VERSION}-win64-setup.exe
+    mv build/out/storofwealth-*win32-setup.exe ../storofwealth-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -224,23 +224,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-lasvegascoin-${VERSION}-aarch64-linux-gnu.tar.gz
-lasvegascoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-lasvegascoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-lasvegascoin-${VERSION}-x86_64-linux-gnu.tar.gz
-lasvegascoin-${VERSION}-osx64.tar.gz
-lasvegascoin-${VERSION}-osx.dmg
-lasvegascoin-${VERSION}.tar.gz
-lasvegascoin-${VERSION}-win32-setup.exe
-lasvegascoin-${VERSION}-win32.zip
-lasvegascoin-${VERSION}-win64-setup.exe
-lasvegascoin-${VERSION}-win64.zip
+storofwealth-${VERSION}-aarch64-linux-gnu.tar.gz
+storofwealth-${VERSION}-arm-linux-gnueabihf.tar.gz
+storofwealth-${VERSION}-i686-pc-linux-gnu.tar.gz
+storofwealth-${VERSION}-x86_64-linux-gnu.tar.gz
+storofwealth-${VERSION}-osx64.tar.gz
+storofwealth-${VERSION}-osx.dmg
+storofwealth-${VERSION}.tar.gz
+storofwealth-${VERSION}-win32-setup.exe
+storofwealth-${VERSION}-win32.zip
+storofwealth-${VERSION}-win64-setup.exe
+storofwealth-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the lasvegascoin.org server*.
+space *do not upload these to the storofwealth.org server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -256,7 +256,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - bitcointalk announcement thread
 
-  - Optionally twitter, reddit /r/lasvegascoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/storofwealth, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 

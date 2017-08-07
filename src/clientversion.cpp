@@ -10,7 +10,7 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both lasvegascoind and lasvegascoin-qt, to make it harder for attackers to
+ * for both storofwealthd and storofwealth-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
 const std::string CLIENT_NAME("Store of Wealth Coin Core");

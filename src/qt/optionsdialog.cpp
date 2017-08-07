@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lasvegascoin-config.h"
+#include "config/storofwealth-config.h"
 #endif
 
 #include "optionsdialog.h"

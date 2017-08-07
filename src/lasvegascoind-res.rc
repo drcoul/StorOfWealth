@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Store of Wealth Coin"
-            VALUE "FileDescription",    "lasvegascoind (OSS daemon/client for StorOfWealth)"
+            VALUE "FileDescription",    "storofwealthd (OSS daemon/client for StorOfWealth)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "lasvegascoind"
+            VALUE "InternalName",       "storofwealthd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "lasvegascoind.exe"
-            VALUE "ProductName",        "lasvegascoind"
+            VALUE "OriginalFilename",   "storofwealthd.exe"
+            VALUE "ProductName",        "storofwealthd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

@@ -3,7 +3,7 @@ Store of Wealth Coin Core
 
 Setup
 ---------------------
-[Store of Wealth Coin Core](http://lasvegascoin.org/wallet) is the original Store of Wealth Coin client and it builds the backbone of the network. However, it downloads and stores the entire history of Store of Wealth Coin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Store of Wealth Coin Core](http://storofwealth.org/wallet) is the original Store of Wealth Coin client and it builds the backbone of the network. However, it downloads and stores the entire history of Store of Wealth Coin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -13,12 +13,12 @@ The following are some helpful notes on how to run Store of Wealth Coin on your 
 
 Unpack the files into a directory and run:
 
-- bin/32/lasvegascoin-qt (GUI, 32-bit) or bin/32/lasvegascoind (headless, 32-bit)
-- bin/64/lasvegascoin-qt (GUI, 64-bit) or bin/64/lasvegascoind (headless, 64-bit)
+- bin/32/storofwealth-qt (GUI, 32-bit) or bin/32/storofwealthd (headless, 32-bit)
+- bin/64/storofwealth-qt (GUI, 64-bit) or bin/64/storofwealthd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run lasvegascoin-qt.exe.
+Unpack the files into a directory, and then run storofwealth-qt.exe.
 
 ### OSX
 
@@ -28,8 +28,8 @@ Drag StorOfWealth-Qt to your applications folder, and then run StorOfWealth-Qt.
 
 * See the documentation at the [Store of Wealth Coin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Store of Wealth Coin Forum](http://forum.lasvegascoin.org/).
-* Join one of our Slack groups [Store of Wealth Coin Slack Groups](https://lasvegascoin.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Store of Wealth Coin Forum](http://forum.storofwealth.org/).
+* Join one of our Slack groups [Store of Wealth Coin Slack Groups](https://storofwealth.org/slack-logins/).
 
 Building
 ---------------------
@@ -55,8 +55,8 @@ The StorOfWealth repo's [root README](https://github.com/StorOfWealth-Project/St
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Store of Wealth Coin](http://forum.lasvegascoin.org/) forum.
-* Join the [Store of Wealth Coin-Dev](https://lasvegascoin-dev.slack.com/) Slack group ([Sign-Up](https://lasvegascoin-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Store of Wealth Coin](http://forum.storofwealth.org/) forum.
+* Join the [Store of Wealth Coin-Dev](https://storofwealth-dev.slack.com/) Slack group ([Sign-Up](https://storofwealth-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

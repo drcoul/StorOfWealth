@@ -1,31 +1,31 @@
 #!/bin/bash
 #
-#  lasvegascoind The Store of Wealth Coin core server.
+#  storofwealthd The Store of Wealth Coin core server.
 #
 #
 # chkconfig: 345 80 20
-# description: lasvegascoind
-# processname: lasvegascoind
+# description: storofwealthd
+# processname: storofwealthd
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/lasvegascoind, see below
-if [ -f /etc/sysconfig/lasvegascoind ]; then
-        . /etc/sysconfig/lasvegascoind
+# you can override defaults in /etc/sysconfig/storofwealthd, see below
+if [ -f /etc/sysconfig/storofwealthd ]; then
+        . /etc/sysconfig/storofwealthd
 fi
 
 RETVAL=0
 
-prog=lasvegascoind
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/lasvegascoind
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/lasvegascoind}
+prog=storofwealthd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/storofwealthd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/storofwealthd}
 
-# lasvegascoind defaults to /usr/bin/lasvegascoind, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/lasvegascoind}
+# storofwealthd defaults to /usr/bin/storofwealthd, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/storofwealthd}
 
-# lasvegascoind opts default to -disablewallet, override with BITCOIND_OPTS
+# storofwealthd opts default to -disablewallet, override with BITCOIND_OPTS
 bitcoind_opts=${BITCOIND_OPTS}
 
 start() {

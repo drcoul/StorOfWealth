@@ -41,11 +41,11 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case SOW:
-        return QString("lasvegascoin");
+        return QString("storofwealth");
     case mSOW:
-        return QString("mlasvegascoin");
+        return QString("mstorofwealth");
     case uSOW:
-        return QString::fromUtf8("ulasvegascoin");
+        return QString::fromUtf8("ustorofwealth");
     default:
         return QString("???");
     }

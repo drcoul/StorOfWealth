@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/lasvegascoin-project/lasvegascoin
+url=https://github.com/storofwealth-project/storofwealth
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the lasvegascoin, gitian-builder, gitian.sigs, and lasvegascoin-detached-sigs.
+Run this script from the directory containing the storofwealth, gitian-builder, gitian.sigs, and storofwealth-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/lasvegascoin-project/lasvegascoin
+-u|--url	Specify the URL of the repository. Default is https://github.com/storofwealth-project/storofwealth
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -232,8 +232,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/lasvegascoin-project/gitian.sigs.git
-    git clone https://github.com/lasvegascoin-project/lasvegascoin-detached-sigs.git
+    git clone https://github.com/storofwealth-project/gitian.sigs.git
+    git clone https://github.com/storofwealth-project/storofwealth-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./lasvegascoin
+pushd ./storofwealth
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./lasvegascoin-binaries/${VERSION}
+	mkdir -p ./storofwealth-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../lasvegascoin/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../storofwealth/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit lasvegascoin=${COMMIT} --url lasvegascoin=${url} ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/lasvegascoin-*.tar.gz build/out/src/lasvegascoin-*.tar.gz ../lasvegascoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit storofwealth=${COMMIT} --url storofwealth=${url} ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/storofwealth-*.tar.gz build/out/src/storofwealth-*.tar.gz ../storofwealth-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit lasvegascoin=${COMMIT} --url lasvegascoin=${url} ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/lasvegascoin-*-win-unsigned.tar.gz inputs/lasvegascoin-win-unsigned.tar.gz
-	    mv build/out/lasvegascoin-*.zip build/out/lasvegascoin-*.exe ../lasvegascoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit storofwealth=${COMMIT} --url storofwealth=${url} ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/storofwealth-*-win-unsigned.tar.gz inputs/storofwealth-win-unsigned.tar.gz
+	    mv build/out/storofwealth-*.zip build/out/storofwealth-*.exe ../storofwealth-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit lasvegascoin=${COMMIT} --url lasvegascoin=${url} ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/lasvegascoin-*-osx-unsigned.tar.gz inputs/lasvegascoin-osx-unsigned.tar.gz
-	    mv build/out/lasvegascoin-*.tar.gz build/out/lasvegascoin-*.dmg ../lasvegascoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit storofwealth=${COMMIT} --url storofwealth=${url} ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/storofwealth-*-osx-unsigned.tar.gz inputs/storofwealth-osx-unsigned.tar.gz
+	    mv build/out/storofwealth-*.tar.gz build/out/storofwealth-*.dmg ../storofwealth-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../lasvegascoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../storofwealth/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../lasvegascoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../storofwealth/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../lasvegascoin/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../storofwealth/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../lasvegascoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/lasvegascoin-*win64-setup.exe ../lasvegascoin-binaries/${VERSION}
-	    mv build/out/lasvegascoin-*win32-setup.exe ../lasvegascoin-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../storofwealth/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/storofwealth-*win64-setup.exe ../storofwealth-binaries/${VERSION}
+	    mv build/out/storofwealth-*win32-setup.exe ../storofwealth-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../lasvegascoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/lasvegascoin-osx-signed.dmg ../lasvegascoin-binaries/${VERSION}/lasvegascoin-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../storofwealth/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/storofwealth-osx-signed.dmg ../storofwealth-binaries/${VERSION}/storofwealth-${VERSION}-osx.dmg
 	fi
 	popd
 

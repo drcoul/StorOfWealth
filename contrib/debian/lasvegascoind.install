@@ -1,2 +1,2 @@
-usr/local/bin/lasvegascoind usr/bin
-usr/local/bin/lasvegascoin-cli usr/bin
+usr/local/bin/storofwealthd usr/bin
+usr/local/bin/storofwealth-cli usr/bin

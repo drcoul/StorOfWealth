@@ -2028,7 +2028,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("lasvegascoin-scriptch");
+    RenameThread("storofwealth-scriptch");
     scriptcheckqueue.Thread();
 }
 

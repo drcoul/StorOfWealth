@@ -1,6 +1,6 @@
 [Protocol]
-exec=lasvegascoin-qt '%u'
-protocol=lasvegascoin
+exec=storofwealth-qt '%u'
+protocol=storofwealth
 input=none
 output=none
 helper=true

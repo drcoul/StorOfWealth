@@ -362,7 +362,7 @@ public:
 
     //check to see if we should vote on this
     void AutoCheck();
-    //total lasvegascoin paid out by this budget
+    //total storofwealth paid out by this budget
     CAmount GetTotalPayout();
     //vote on this finalized budget as a masternode
     void SubmitVote();

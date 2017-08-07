@@ -54,8 +54,8 @@ Value obfuscation(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "obfuscation <lasvegascoinaddress> <amount>\n"
-            "lasvegascoinaddress, reset, or auto (AutoDenominate)"
+            "obfuscation <storofwealthaddress> <amount>\n"
+            "storofwealthaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -76,8 +76,8 @@ Value obfuscation(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "obfuscation <lasvegascoinaddress> <amount>\n"
-            "lasvegascoinaddress, denominate, or auto (AutoDenominate)"
+            "obfuscation <storofwealthaddress> <amount>\n"
+            "storofwealthaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -139,7 +139,7 @@ Value masternode(const Array& params, bool fHelp)
             "  genkey       - Generate new masternodeprivkey\n"
             "  enforce      - Enforce masternode payments\n"
             "  outputs      - Print masternode compatible outputs\n"
-            "  start        - Start masternode configured in lasvegascoin.conf\n"
+            "  start        - Start masternode configured in storofwealth.conf\n"
             "  start-alias  - Start single masternode by assigned alias configured in masternode.conf\n"
             "  start-<mode> - Start masternodes configured in masternode.conf (<mode>: 'all', 'missing', 'disabled')\n"
             "  status       - Print masternode status information\n"

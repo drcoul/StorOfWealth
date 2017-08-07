@@ -470,7 +470,7 @@ void BlockExplorer::showEvent(QShowEvent*)
         updateNavButtons();
 
         if (!GetBoolArg("-txindex", false)) {
-            QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (lasvegascoin.conf).");
+            QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (storofwealth.conf).");
             QMessageBox::warning(this, "Store of Wealth Coin Core Blockchain Explorer", Warning, QMessageBox::Ok);
         }
     }

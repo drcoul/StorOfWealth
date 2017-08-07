@@ -28,7 +28,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../lasvegascoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../storofwealth.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -97,7 +97,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../lasvegascoin.qrc"/>
+  <include location="../storofwealth.qrc"/>
  </resources>
  <connections>
   <connection>

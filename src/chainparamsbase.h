@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between lasvegascoin-cli and lasvegascoind)
+ * CBaseChainParams defines the base parameters (shared between storofwealth-cli and storofwealthd)
  * of a given instance of the StorOfWealth system.
  */
 class CBaseChainParams
